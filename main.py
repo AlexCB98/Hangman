@@ -14,7 +14,6 @@ words = [
 ]
 
 word = random.choice(words)
-print(word)
 
 word_len = len(word)
 placeholder = ''
@@ -27,7 +26,8 @@ game_over = False
 lives = 5
 
 while not game_over:
-    guess = input('Choose a letter to guess: ')
+    print(f"Lives: {'❤️' * lives}")
+    guess = input('Choose a letter to guess: ').lower()
 
     display = ''
 
@@ -48,11 +48,12 @@ while not game_over:
         lives -= 1
         print('You lost a life.')
 
+    if lives == 0:
+        game_over = True
+        print(f"Game Over. The word was: {word}")
+
     if '_' not in display:
         game_over = True
         print('You win.')
 
-    if lives == 0:
-        game_over = True
-        print(f'You lose, the word is "{word}".')
 
