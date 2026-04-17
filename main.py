@@ -1,17 +1,9 @@
 import random
 
-words = [
-    "cat",
-    "dog",
-    "sun",
-    "book",
-    "tree",
-    "car",
-    "fish",
-    "ball",
-    "milk",
-    "home"
-]
+from hangman_words import words
+from hangman_ascii import stages,logo
+
+print(logo)
 
 word = random.choice(words)
 
@@ -23,7 +15,7 @@ print(f'Your word to guess have {placeholder}({word_len}) letters.')
 
 guessed = []
 game_over = False
-lives = 5
+lives = 6
 
 while not game_over:
     print(f"Lives: {'❤️' * lives}")
@@ -55,5 +47,7 @@ while not game_over:
     if '_' not in display:
         game_over = True
         print('You win.')
+
+    print(stages[lives])
 
 
